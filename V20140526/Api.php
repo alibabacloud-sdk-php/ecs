@@ -2,7 +2,293 @@
 
 namespace AlibabaCloud\Ecs\V20140526;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method DescribeDemands describeDemands(array $options = [])
+ * @method UntagResources untagResources(array $options = [])
+ * @method ListTagResources listTagResources(array $options = [])
+ * @method TagResources tagResources(array $options = [])
+ * @method AcceptInquiredSystemEvent acceptInquiredSystemEvent(array $options = [])
+ * @method ImportSnapshot importSnapshot(array $options = [])
+ * @method ExportSnapshot exportSnapshot(array $options = [])
+ * @method RedeployInstance redeployInstance(array $options = [])
+ * @method UnassignIpv6Addresses unassignIpv6Addresses(array $options = [])
+ * @method AssignIpv6Addresses assignIpv6Addresses(array $options = [])
+ * @method RenewDedicatedHosts renewDedicatedHosts(array $options = [])
+ * @method ReleaseDedicatedHost releaseDedicatedHost(array $options = [])
+ * @method ModifyInstanceDeployment modifyInstanceDeployment(array $options = [])
+ * @method ModifyDedicatedHostAutoReleaseTime modifyDedicatedHostAutoReleaseTime(array $options = [])
+ * @method ModifyDedicatedHostAutoRenewAttribute modifyDedicatedHostAutoRenewAttribute(array $options = [])
+ * @method ModifyDedicatedHostAttribute modifyDedicatedHostAttribute(array $options = [])
+ * @method DescribeDedicatedHosts describeDedicatedHosts(array $options = [])
+ * @method DescribeDedicatedHostTypes describeDedicatedHostTypes(array $options = [])
+ * @method AllocateDedicatedHosts allocateDedicatedHosts(array $options = [])
+ * @method DescribeDedicatedHostAutoRenew describeDedicatedHostAutoRenew(array $options = [])
+ * @method CreateSimulatedSystemEvents createSimulatedSystemEvents(array $options = [])
+ * @method CancelSimulatedSystemEvents cancelSimulatedSystemEvents(array $options = [])
+ * @method DescribeAccountAttributes describeAccountAttributes(array $options = [])
+ * @method DescribeInstanceAutoRenewList describeInstanceAutoRenewList(array $options = [])
+ * @method RecallInstancesSystemEvent recallInstancesSystemEvent(array $options = [])
+ * @method DescribeCloudAssistantStatus describeCloudAssistantStatus(array $options = [])
+ * @method InstallCloudAssistant installCloudAssistant(array $options = [])
+ * @method GetLaunchTemplateData getLaunchTemplateData(array $options = [])
+ * @method DeleteNetworkInterfacePermission deleteNetworkInterfacePermission(array $options = [])
+ * @method DescribeNetworkInterfacePermissions describeNetworkInterfacePermissions(array $options = [])
+ * @method CreateNetworkInterfacePermission createNetworkInterfacePermission(array $options = [])
+ * @method ModifyLaunchTemplateDefaultVersion modifyLaunchTemplateDefaultVersion(array $options = [])
+ * @method DescribeLaunchTemplateVersions describeLaunchTemplateVersions(array $options = [])
+ * @method DescribeLaunchTemplates describeLaunchTemplates(array $options = [])
+ * @method DeleteLaunchTemplateVersion deleteLaunchTemplateVersion(array $options = [])
+ * @method CreateLaunchTemplateVersion createLaunchTemplateVersion(array $options = [])
+ * @method DeleteLaunchTemplate deleteLaunchTemplate(array $options = [])
+ * @method CreateLaunchTemplate createLaunchTemplate(array $options = [])
+ * @method SetInstancesSystemEvent setInstancesSystemEvent(array $options = [])
+ * @method DescribeNetworkInterfaceMonitorData describeNetworkInterfaceMonitorData(array $options = [])
+ * @method DescribeEniMonitorData describeEniMonitorData(array $options = [])
+ * @method CreateInstancesSystemEvent createInstancesSystemEvent(array $options = [])
+ * @method DescribeResourcesModification describeResourcesModification(array $options = [])
+ * @method DescribeBandwidthLimitation describeBandwidthLimitation(array $options = [])
+ * @method RunPodInstances runPodInstances(array $options = [])
+ * @method GetInstanceScreenshot getInstanceScreenshot(array $options = [])
+ * @method GetInstanceConsoleOutput getInstanceConsoleOutput(array $options = [])
+ * @method CreateContainerInstances createContainerInstances(array $options = [])
+ * @method DeleteContainerInstance deleteContainerInstance(array $options = [])
+ * @method ModifyUserEventPlanTime modifyUserEventPlanTime(array $options = [])
+ * @method DescribeUserEventDetail describeUserEventDetail(array $options = [])
+ * @method DescribeAvailableResource describeAvailableResource(array $options = [])
+ * @method DescribeInstanceHistoryEvents describeInstanceHistoryEvents(array $options = [])
+ * @method DescribeBandwidthSpec describeBandwidthSpec(array $options = [])
+ * @method DescribeAvailableZones describeAvailableZones(array $options = [])
+ * @method DescribeInstancesFullStatus describeInstancesFullStatus(array $options = [])
+ * @method AssignPrivateIpAddresses assignPrivateIpAddresses(array $options = [])
+ * @method UnassignPrivateIpAddresses unassignPrivateIpAddresses(array $options = [])
+ * @method ReActivateInstances reActivateInstances(array $options = [])
+ * @method RunInstances runInstances(array $options = [])
+ * @method ModifyUserBusinessBehavior modifyUserBusinessBehavior(array $options = [])
+ * @method DescribeUserBusinessBehavior describeUserBusinessBehavior(array $options = [])
+ * @method DescribeDisksFullStatus describeDisksFullStatus(array $options = [])
+ * @method ArchiveInstance archiveInstance(array $options = [])
+ * @method ConvertNatPublicIpToEip convertNatPublicIpToEip(array $options = [])
+ * @method DeleteHpcCluster deleteHpcCluster(array $options = [])
+ * @method DescribeHpcClusters describeHpcClusters(array $options = [])
+ * @method ModifyHpcClusterAttribute modifyHpcClusterAttribute(array $options = [])
+ * @method CreateHpcCluster createHpcCluster(array $options = [])
+ * @method DescribeSnapshotsUsage describeSnapshotsUsage(array $options = [])
+ * @method DescribeSpotPriceHistory describeSpotPriceHistory(array $options = [])
+ * @method DescribeInvocations describeInvocations(array $options = [])
+ * @method InvokeCommand invokeCommand(array $options = [])
+ * @method ModifyCommand modifyCommand(array $options = [])
+ * @method StopInvocation stopInvocation(array $options = [])
+ * @method CreateCommand createCommand(array $options = [])
+ * @method DeleteCommand deleteCommand(array $options = [])
+ * @method DescribeCommands describeCommands(array $options = [])
+ * @method DescribeInvocationResults describeInvocationResults(array $options = [])
+ * @method ModifySecurityGroupEgressRule modifySecurityGroupEgressRule(array $options = [])
+ * @method DescribeInstanceBusinessMonitorData describeInstanceBusinessMonitorData(array $options = [])
+ * @method DeleteAxtCommand deleteAxtCommand(array $options = [])
+ * @method DescribeAxtCommand describeAxtCommand(array $options = [])
+ * @method DescribeAxtTask describeAxtTask(array $options = [])
+ * @method DescribeAxtTaskResult describeAxtTaskResult(array $options = [])
+ * @method ModifyAxtCommand modifyAxtCommand(array $options = [])
+ * @method StopAxtTask stopAxtTask(array $options = [])
+ * @method CreateAxtCommand createAxtCommand(array $options = [])
+ * @method CreateAxtTask createAxtTask(array $options = [])
+ * @method DescribeRecommendInstanceType describeRecommendInstanceType(array $options = [])
+ * @method DetachNetworkInterface detachNetworkInterface(array $options = [])
+ * @method ModifyNetworkInterfaceAttribute modifyNetworkInterfaceAttribute(array $options = [])
+ * @method AttachNetworkInterface attachNetworkInterface(array $options = [])
+ * @method CreateNetworkInterface createNetworkInterface(array $options = [])
+ * @method DeleteNetworkInterface deleteNetworkInterface(array $options = [])
+ * @method DescribeNetworkInterfaces describeNetworkInterfaces(array $options = [])
+ * @method DescribeSecurityGroupReferences describeSecurityGroupReferences(array $options = [])
+ * @method ModifyDiskChargeType modifyDiskChargeType(array $options = [])
+ * @method ModifyInstanceChargeType modifyInstanceChargeType(array $options = [])
+ * @method ModifyPrepayInstanceSpec modifyPrepayInstanceSpec(array $options = [])
+ * @method DescribeGroupReferences describeGroupReferences(array $options = [])
+ * @method ReInitDisks reInitDisks(array $options = [])
+ * @method ModifySecurityGroupPolicy modifySecurityGroupPolicy(array $options = [])
+ * @method DescribeSnapshotPackage describeSnapshotPackage(array $options = [])
+ * @method DescribeInstanceRamRole describeInstanceRamRole(array $options = [])
+ * @method AttachClassicLinkVpc attachClassicLinkVpc(array $options = [])
+ * @method DescribeClassicLinkInstances describeClassicLinkInstances(array $options = [])
+ * @method DetachClassicLinkVpc detachClassicLinkVpc(array $options = [])
+ * @method AttachInstanceRamRole attachInstanceRamRole(array $options = [])
+ * @method DetachInstanceRamRole detachInstanceRamRole(array $options = [])
+ * @method DescribeSnapshotMonitorData describeSnapshotMonitorData(array $options = [])
+ * @method ModifySecurityGroupRule modifySecurityGroupRule(array $options = [])
+ * @method DescribePrice describePrice(array $options = [])
+ * @method DescribeRenewalPrice describeRenewalPrice(array $options = [])
+ * @method JoinResourceGroup joinResourceGroup(array $options = [])
+ * @method CreateDeploymentSet createDeploymentSet(array $options = [])
+ * @method DeleteDeploymentSet deleteDeploymentSet(array $options = [])
+ * @method DescribeDeploymentSets describeDeploymentSets(array $options = [])
+ * @method ModifyDeploymentSetAttribute modifyDeploymentSetAttribute(array $options = [])
+ * @method DescribeInstanceKeyPairInfo describeInstanceKeyPairInfo(array $options = [])
+ * @method DeleteKeyPairs deleteKeyPairs(array $options = [])
+ * @method DescribeKeyPairs describeKeyPairs(array $options = [])
+ * @method DetachKeyPair detachKeyPair(array $options = [])
+ * @method ImportKeyPair importKeyPair(array $options = [])
+ * @method AttachKeyPair attachKeyPair(array $options = [])
+ * @method CreateKeyPair createKeyPair(array $options = [])
+ * @method ModifyInstanceAutoRenewAttribute modifyInstanceAutoRenewAttribute(array $options = [])
+ * @method DescribeInstanceAutoRenewAttribute describeInstanceAutoRenewAttribute(array $options = [])
+ * @method ModifyInstanceAutoReleaseTime modifyInstanceAutoReleaseTime(array $options = [])
+ * @method StaticEipFillParams staticEipFillParams(array $options = [])
+ * @method StaticEipNotifyPaid staticEipNotifyPaid(array $options = [])
+ * @method DescribeForwardTables describeForwardTables(array $options = [])
+ * @method DescribeUserData describeUserData(array $options = [])
+ * @method DescribeNewProjectEipMonitorData describeNewProjectEipMonitorData(array $options = [])
+ * @method ModifyForwardEntry modifyForwardEntry(array $options = [])
+ * @method RemoveBandwidthPackageIps removeBandwidthPackageIps(array $options = [])
+ * @method DescribeBandwidthPackages describeBandwidthPackages(array $options = [])
+ * @method DescribeForwardTableEntries describeForwardTableEntries(array $options = [])
+ * @method DescribeNatGateways describeNatGateways(array $options = [])
+ * @method ModifyBandwidthPackageSpec modifyBandwidthPackageSpec(array $options = [])
+ * @method CreateNatGateway createNatGateway(array $options = [])
+ * @method DeleteBandwidthPackage deleteBandwidthPackage(array $options = [])
+ * @method DeleteForwardEntry deleteForwardEntry(array $options = [])
+ * @method DeleteNatGateway deleteNatGateway(array $options = [])
+ * @method AddBandwidthPackageIps addBandwidthPackageIps(array $options = [])
+ * @method CreateForwardEntry createForwardEntry(array $options = [])
+ * @method EipFillProduct eipFillProduct(array $options = [])
+ * @method DescribeSnapshotLinks describeSnapshotLinks(array $options = [])
+ * @method EipNotifyPaid eipNotifyPaid(array $options = [])
+ * @method EipFillParams eipFillParams(array $options = [])
+ * @method CancelAutoSnapshotPolicy cancelAutoSnapshotPolicy(array $options = [])
+ * @method CreateAutoSnapshotPolicy createAutoSnapshotPolicy(array $options = [])
+ * @method DeleteAutoSnapshotPolicy deleteAutoSnapshotPolicy(array $options = [])
+ * @method DescribeAutoSnapshotPolicyEx describeAutoSnapshotPolicyEx(array $options = [])
+ * @method ModifyAutoSnapshotPolicyEx modifyAutoSnapshotPolicyEx(array $options = [])
+ * @method ApplyAutoSnapshotPolicy applyAutoSnapshotPolicy(array $options = [])
+ * @method DescribeImageSupportInstanceTypes describeImageSupportInstanceTypes(array $options = [])
+ * @method TerminateVirtualBorderRouter terminateVirtualBorderRouter(array $options = [])
+ * @method ModifyVirtualBorderRouterAttribute modifyVirtualBorderRouterAttribute(array $options = [])
+ * @method RecoverVirtualBorderRouter recoverVirtualBorderRouter(array $options = [])
+ * @method TerminatePhysicalConnection terminatePhysicalConnection(array $options = [])
+ * @method DescribeVirtualBorderRouters describeVirtualBorderRouters(array $options = [])
+ * @method DescribeVirtualBorderRoutersForPhysicalConnection describeVirtualBorderRoutersForPhysicalConnection(array $options = [])
+ * @method EnablePhysicalConnection enablePhysicalConnection(array $options = [])
+ * @method ModifyPhysicalConnectionAttribute modifyPhysicalConnectionAttribute(array $options = [])
+ * @method DescribeAccessPoints describeAccessPoints(array $options = [])
+ * @method DescribePhysicalConnections describePhysicalConnections(array $options = [])
+ * @method DeletePhysicalConnection deletePhysicalConnection(array $options = [])
+ * @method DeleteVirtualBorderRouter deleteVirtualBorderRouter(array $options = [])
+ * @method CreatePhysicalConnection createPhysicalConnection(array $options = [])
+ * @method CreateVirtualBorderRouter createVirtualBorderRouter(array $options = [])
+ * @method CancelPhysicalConnection cancelPhysicalConnection(array $options = [])
+ * @method DescribeTaskAttribute describeTaskAttribute(array $options = [])
+ * @method DescribeTasks describeTasks(array $options = [])
+ * @method ExportImage exportImage(array $options = [])
+ * @method ImportImage importImage(array $options = [])
+ * @method CancelTask cancelTask(array $options = [])
+ * @method DescribeInstanceTypeFamilies describeInstanceTypeFamilies(array $options = [])
+ * @method ModifyRouterInterfaceAttribute modifyRouterInterfaceAttribute(array $options = [])
+ * @method ModifyRouterInterfaceSpec modifyRouterInterfaceSpec(array $options = [])
+ * @method ActivateRouterInterface activateRouterInterface(array $options = [])
+ * @method ConnectRouterInterface connectRouterInterface(array $options = [])
+ * @method CreateRouterInterface createRouterInterface(array $options = [])
+ * @method DeactivateRouterInterface deactivateRouterInterface(array $options = [])
+ * @method DeleteRouterInterface deleteRouterInterface(array $options = [])
+ * @method DescribeRouterInterfaces describeRouterInterfaces(array $options = [])
+ * @method DescribeHaVips describeHaVips(array $options = [])
+ * @method ModifyHaVipAttribute modifyHaVipAttribute(array $options = [])
+ * @method UnassociateHaVip unassociateHaVip(array $options = [])
+ * @method CreateHaVip createHaVip(array $options = [])
+ * @method DeleteHaVip deleteHaVip(array $options = [])
+ * @method AssociateHaVip associateHaVip(array $options = [])
+ * @method RenewInstance renewInstance(array $options = [])
+ * @method AssociateEipAddress associateEipAddress(array $options = [])
+ * @method AllocatePublicIpAddress allocatePublicIpAddress(array $options = [])
+ * @method AllocateEipAddress allocateEipAddress(array $options = [])
+ * @method AuthorizeSecurityGroupEgress authorizeSecurityGroupEgress(array $options = [])
+ * @method AuthorizeSecurityGroup authorizeSecurityGroup(array $options = [])
+ * @method AttachDisk attachDisk(array $options = [])
+ * @method CancelCopyImage cancelCopyImage(array $options = [])
+ * @method CreateImage createImage(array $options = [])
+ * @method CreateDisk createDisk(array $options = [])
+ * @method CopyImage copyImage(array $options = [])
+ * @method CreateSecurityGroup createSecurityGroup(array $options = [])
+ * @method CreateRouteEntry createRouteEntry(array $options = [])
+ * @method CreateInstance createInstance(array $options = [])
+ * @method CreateVSwitch createVSwitch(array $options = [])
+ * @method CreateVpc createVpc(array $options = [])
+ * @method CreateSnapshot createSnapshot(array $options = [])
+ * @method DeleteRouteEntry deleteRouteEntry(array $options = [])
+ * @method DeleteInstance deleteInstance(array $options = [])
+ * @method DeleteImage deleteImage(array $options = [])
+ * @method DeleteDisk deleteDisk(array $options = [])
+ * @method DeleteVSwitch deleteVSwitch(array $options = [])
+ * @method DeleteVpc deleteVpc(array $options = [])
+ * @method DeleteSnapshot deleteSnapshot(array $options = [])
+ * @method DeleteSecurityGroup deleteSecurityGroup(array $options = [])
+ * @method DescribeDiskMonitorData describeDiskMonitorData(array $options = [])
+ * @method DescribeClusters describeClusters(array $options = [])
+ * @method DescribeEipMonitorData describeEipMonitorData(array $options = [])
+ * @method DescribeEipAddresses describeEipAddresses(array $options = [])
+ * @method DescribeDisks describeDisks(array $options = [])
+ * @method DescribeInstanceAttribute describeInstanceAttribute(array $options = [])
+ * @method DescribeImageSharePermission describeImageSharePermission(array $options = [])
+ * @method DescribeImages describeImages(array $options = [])
+ * @method DescribeInstances describeInstances(array $options = [])
+ * @method DescribeInstancePhysicalAttribute describeInstancePhysicalAttribute(array $options = [])
+ * @method DescribeInstanceMonitorData describeInstanceMonitorData(array $options = [])
+ * @method DescribeInstanceVncPasswd describeInstanceVncPasswd(array $options = [])
+ * @method DescribeInstanceTypes describeInstanceTypes(array $options = [])
+ * @method DescribeInstanceStatus describeInstanceStatus(array $options = [])
+ * @method DescribeInstanceVncUrl describeInstanceVncUrl(array $options = [])
+ * @method DescribeSecurityGroupAttribute describeSecurityGroupAttribute(array $options = [])
+ * @method DescribeRouteTables describeRouteTables(array $options = [])
+ * @method DescribeRegions describeRegions(array $options = [])
+ * @method DescribeVpcs describeVpcs(array $options = [])
+ * @method DescribeSnapshots describeSnapshots(array $options = [])
+ * @method DescribeSecurityGroups describeSecurityGroups(array $options = [])
+ * @method DetachDisk detachDisk(array $options = [])
+ * @method DescribeZones describeZones(array $options = [])
+ * @method DescribeVSwitches describeVSwitches(array $options = [])
+ * @method DescribeVRouters describeVRouters(array $options = [])
+ * @method ModifyDiskAttribute modifyDiskAttribute(array $options = [])
+ * @method ModifyAutoSnapshotPolicy modifyAutoSnapshotPolicy(array $options = [])
+ * @method LeaveSecurityGroup leaveSecurityGroup(array $options = [])
+ * @method JoinSecurityGroup joinSecurityGroup(array $options = [])
+ * @method ModifyImageShareGroupPermission modifyImageShareGroupPermission(array $options = [])
+ * @method ModifyImageAttribute modifyImageAttribute(array $options = [])
+ * @method ModifyEipAddressAttribute modifyEipAddressAttribute(array $options = [])
+ * @method ModifyInstanceSpec modifyInstanceSpec(array $options = [])
+ * @method ModifyInstanceNetworkSpec modifyInstanceNetworkSpec(array $options = [])
+ * @method ModifyInstanceAttribute modifyInstanceAttribute(array $options = [])
+ * @method ModifyImageSharePermission modifyImageSharePermission(array $options = [])
+ * @method ModifyInstanceVpcAttribute modifyInstanceVpcAttribute(array $options = [])
+ * @method ModifyInstanceVncPasswd modifyInstanceVncPasswd(array $options = [])
+ * @method ModifyVpcAttribute modifyVpcAttribute(array $options = [])
+ * @method ModifySnapshotAttribute modifySnapshotAttribute(array $options = [])
+ * @method ModifySecurityGroupAttribute modifySecurityGroupAttribute(array $options = [])
+ * @method ReInitDisk reInitDisk(array $options = [])
+ * @method RebootInstance rebootInstance(array $options = [])
+ * @method ModifyVSwitchAttribute modifyVSwitchAttribute(array $options = [])
+ * @method ModifyVRouterAttribute modifyVRouterAttribute(array $options = [])
+ * @method ReplaceSystemDisk replaceSystemDisk(array $options = [])
+ * @method ReleasePublicIpAddress releasePublicIpAddress(array $options = [])
+ * @method ReleaseEipAddress releaseEipAddress(array $options = [])
+ * @method RevokeSecurityGroupEgress revokeSecurityGroupEgress(array $options = [])
+ * @method RevokeSecurityGroup revokeSecurityGroup(array $options = [])
+ * @method ResizeDisk resizeDisk(array $options = [])
+ * @method ResetDisk resetDisk(array $options = [])
+ * @method UnassociateEipAddress unassociateEipAddress(array $options = [])
+ * @method StopInstance stopInstance(array $options = [])
+ * @method StartInstance startInstance(array $options = [])
+ * @method DescribeTags describeTags(array $options = [])
+ * @method DescribeResourceByTags describeResourceByTags(array $options = [])
+ * @method AddTags addTags(array $options = [])
+ * @method RemoveTags removeTags(array $options = [])
+ */
+class EcsApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20140526Rpc extends Rpc
 {
@@ -49,30 +335,30 @@ class DescribeDemands extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $demandStatus
      *
      * @return $this
      */
-    public function withDemandStatus(array $value)
+    public function withDemandStatus(array $demandStatus)
     {
-        $this->data['DemandStatus'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DemandStatus'] = $demandStatus;
+        foreach ($demandStatus as $i => $iValue) {
             $this->options['query']['DemandStatus.' . ($i + 1)] = $iValue;
         }
 
@@ -100,14 +386,14 @@ class UntagResources extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -115,14 +401,14 @@ class UntagResources extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tagKey
      *
      * @return $this
      */
-    public function withTagKey(array $value)
+    public function withTagKey(array $tagKey)
     {
-        $this->data['TagKey'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['TagKey'] = $tagKey;
+        foreach ($tagKey as $i => $iValue) {
             $this->options['query']['TagKey.' . ($i + 1)] = $iValue;
         }
 
@@ -150,30 +436,30 @@ class ListTagResources extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -197,30 +483,30 @@ class TagResources extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -317,14 +603,14 @@ class UnassignIpv6Addresses extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $ipv6Address
      *
      * @return $this
      */
-    public function withIpv6Address(array $value)
+    public function withIpv6Address(array $ipv6Address)
     {
-        $this->data['Ipv6Address'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Ipv6Address'] = $ipv6Address;
+        foreach ($ipv6Address as $i => $iValue) {
             $this->options['query']['Ipv6Address.' . ($i + 1)] = $iValue;
         }
 
@@ -351,14 +637,14 @@ class AssignIpv6Addresses extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $ipv6Address
      *
      * @return $this
      */
-    public function withIpv6Address(array $value)
+    public function withIpv6Address(array $ipv6Address)
     {
-        $this->data['Ipv6Address'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Ipv6Address'] = $ipv6Address;
+        foreach ($ipv6Address as $i => $iValue) {
             $this->options['query']['Ipv6Address.' . ($i + 1)] = $iValue;
         }
 
@@ -551,16 +837,16 @@ class DescribeDedicatedHosts extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -632,16 +918,16 @@ class AllocateDedicatedHosts extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
@@ -709,14 +995,14 @@ class CreateSimulatedSystemEvents extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -739,14 +1025,14 @@ class CancelSimulatedSystemEvents extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $eventId
      *
      * @return $this
      */
-    public function withEventId(array $value)
+    public function withEventId(array $eventId)
     {
-        $this->data['EventId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['EventId'] = $eventId;
+        foreach ($eventId as $i => $iValue) {
             $this->options['query']['EventId.' . ($i + 1)] = $iValue;
         }
 
@@ -769,14 +1055,14 @@ class DescribeAccountAttributes extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $attributeName
      *
      * @return $this
      */
-    public function withAttributeName(array $value)
+    public function withAttributeName(array $attributeName)
     {
-        $this->data['AttributeName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['AttributeName'] = $attributeName;
+        foreach ($attributeName as $i => $iValue) {
             $this->options['query']['AttributeName.' . ($i + 1)] = $iValue;
         }
 
@@ -821,14 +1107,14 @@ class RecallInstancesSystemEvent extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $eventId
      *
      * @return $this
      */
-    public function withEventId(array $value)
+    public function withEventId(array $eventId)
     {
-        $this->data['EventId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['EventId'] = $eventId;
+        foreach ($eventId as $i => $iValue) {
             $this->options['query']['EventId.' . ($i + 1)] = $iValue;
         }
 
@@ -851,14 +1137,14 @@ class DescribeCloudAssistantStatus extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -881,14 +1167,14 @@ class InstallCloudAssistant extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -949,14 +1235,14 @@ class DescribeNetworkInterfacePermissions extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $networkInterfacePermissionId
      *
      * @return $this
      */
-    public function withNetworkInterfacePermissionId(array $value)
+    public function withNetworkInterfacePermissionId(array $networkInterfacePermissionId)
     {
-        $this->data['NetworkInterfacePermissionId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['NetworkInterfacePermissionId'] = $networkInterfacePermissionId;
+        foreach ($networkInterfacePermissionId as $i => $iValue) {
             $this->options['query']['NetworkInterfacePermissionId.' . ($i + 1)] = $iValue;
         }
 
@@ -1035,14 +1321,14 @@ class DescribeLaunchTemplateVersions extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $launchTemplateVersion
      *
      * @return $this
      */
-    public function withLaunchTemplateVersion(array $value)
+    public function withLaunchTemplateVersion(array $launchTemplateVersion)
     {
-        $this->data['LaunchTemplateVersion'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['LaunchTemplateVersion'] = $launchTemplateVersion;
+        foreach ($launchTemplateVersion as $i => $iValue) {
             $this->options['query']['LaunchTemplateVersion.' . ($i + 1)] = $iValue;
         }
 
@@ -1073,14 +1359,14 @@ class DescribeLaunchTemplates extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $launchTemplateName
      *
      * @return $this
      */
-    public function withLaunchTemplateName(array $value)
+    public function withLaunchTemplateName(array $launchTemplateName)
     {
-        $this->data['LaunchTemplateName'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['LaunchTemplateName'] = $launchTemplateName;
+        foreach ($launchTemplateName as $i => $iValue) {
             $this->options['query']['LaunchTemplateName.' . ($i + 1)] = $iValue;
         }
 
@@ -1088,30 +1374,30 @@ class DescribeLaunchTemplates extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $templateTag
      *
      * @return $this
      */
-    public function withTemplateTag(array $value)
+    public function withTemplateTag(array $templateTag)
     {
-        $this->data['TemplateTag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['TemplateTag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['TemplateTag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['TemplateTag'] = $templateTag;
+        foreach ($templateTag as $depth1 => $depth1Value) {
+            $this->options['query']['TemplateTag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['TemplateTag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $launchTemplateId
      *
      * @return $this
      */
-    public function withLaunchTemplateId(array $value)
+    public function withLaunchTemplateId(array $launchTemplateId)
     {
-        $this->data['LaunchTemplateId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['LaunchTemplateId'] = $launchTemplateId;
+        foreach ($launchTemplateId as $i => $iValue) {
             $this->options['query']['LaunchTemplateId.' . ($i + 1)] = $iValue;
         }
 
@@ -1138,14 +1424,14 @@ class DeleteLaunchTemplateVersion extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $deleteVersion
      *
      * @return $this
      */
-    public function withDeleteVersion(array $value)
+    public function withDeleteVersion(array $deleteVersion)
     {
-        $this->data['DeleteVersion'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DeleteVersion'] = $deleteVersion;
+        foreach ($deleteVersion as $i => $iValue) {
             $this->options['query']['DeleteVersion.' . ($i + 1)] = $iValue;
         }
 
@@ -1250,16 +1536,16 @@ class CreateLaunchTemplateVersion extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
@@ -1279,19 +1565,19 @@ class CreateLaunchTemplateVersion extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $networkInterface
      *
      * @return $this
      */
-    public function withNetworkInterface(array $value)
+    public function withNetworkInterface(array $networkInterface)
     {
-        $this->data['NetworkInterface'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.PrimaryIpAddress'] = $value[$i]['PrimaryIpAddress'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.VSwitchId'] = $value[$i]['VSwitchId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.SecurityGroupId'] = $value[$i]['SecurityGroupId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.NetworkInterfaceName'] = $value[$i]['NetworkInterfaceName'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
+        $this->data['NetworkInterface'] = $networkInterface;
+        foreach ($networkInterface as $depth1 => $depth1Value) {
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.PrimaryIpAddress'] = $depth1Value['PrimaryIpAddress'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupId'] = $depth1Value['SecurityGroupId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.NetworkInterfaceName'] = $depth1Value['NetworkInterfaceName'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
         }
 
         return $this;
@@ -1311,22 +1597,22 @@ class CreateLaunchTemplateVersion extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dataDisk
      *
      * @return $this
      */
-    public function withDataDisk(array $value)
+    public function withDataDisk(array $dataDisk)
     {
-        $this->data['DataDisk'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Size'] = $value[$i]['Size'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.SnapshotId'] = $value[$i]['SnapshotId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Category'] = $value[$i]['Category'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Encrypted'] = $value[$i]['Encrypted'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DiskName'] = $value[$i]['DiskName'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DeleteWithInstance'] = $value[$i]['DeleteWithInstance'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
+        $this->data['DataDisk'] = $dataDisk;
+        foreach ($dataDisk as $depth1 => $depth1Value) {
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
         }
 
         return $this;
@@ -1475,32 +1761,32 @@ class CreateLaunchTemplate extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $templateTag
      *
      * @return $this
      */
-    public function withTemplateTag(array $value)
+    public function withTemplateTag(array $templateTag)
     {
-        $this->data['TemplateTag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['TemplateTag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['TemplateTag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['TemplateTag'] = $templateTag;
+        foreach ($templateTag as $depth1 => $depth1Value) {
+            $this->options['query']['TemplateTag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['TemplateTag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
@@ -1520,19 +1806,19 @@ class CreateLaunchTemplate extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $networkInterface
      *
      * @return $this
      */
-    public function withNetworkInterface(array $value)
+    public function withNetworkInterface(array $networkInterface)
     {
-        $this->data['NetworkInterface'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.PrimaryIpAddress'] = $value[$i]['PrimaryIpAddress'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.VSwitchId'] = $value[$i]['VSwitchId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.SecurityGroupId'] = $value[$i]['SecurityGroupId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.NetworkInterfaceName'] = $value[$i]['NetworkInterfaceName'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
+        $this->data['NetworkInterface'] = $networkInterface;
+        foreach ($networkInterface as $depth1 => $depth1Value) {
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.PrimaryIpAddress'] = $depth1Value['PrimaryIpAddress'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupId'] = $depth1Value['SecurityGroupId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.NetworkInterfaceName'] = $depth1Value['NetworkInterfaceName'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
         }
 
         return $this;
@@ -1552,22 +1838,22 @@ class CreateLaunchTemplate extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dataDisk
      *
      * @return $this
      */
-    public function withDataDisk(array $value)
+    public function withDataDisk(array $dataDisk)
     {
-        $this->data['DataDisk'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Size'] = $value[$i]['Size'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.SnapshotId'] = $value[$i]['SnapshotId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Category'] = $value[$i]['Category'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Encrypted'] = $value[$i]['Encrypted'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DiskName'] = $value[$i]['DiskName'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DeleteWithInstance'] = $value[$i]['DeleteWithInstance'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
+        $this->data['DataDisk'] = $dataDisk;
+        foreach ($dataDisk as $depth1 => $depth1Value) {
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
         }
 
         return $this;
@@ -1619,14 +1905,14 @@ class SetInstancesSystemEvent extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -1703,14 +1989,14 @@ class CreateInstancesSystemEvent extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -1969,14 +2255,14 @@ class DescribeInstanceHistoryEvents extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $eventId
      *
      * @return $this
      */
-    public function withEventId(array $value)
+    public function withEventId(array $eventId)
     {
-        $this->data['EventId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['EventId'] = $eventId;
+        foreach ($eventId as $i => $iValue) {
             $this->options['query']['EventId.' . ($i + 1)] = $iValue;
         }
 
@@ -1984,14 +2270,14 @@ class DescribeInstanceHistoryEvents extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $instanceEventCycleStatus
      *
      * @return $this
      */
-    public function withInstanceEventCycleStatus(array $value)
+    public function withInstanceEventCycleStatus(array $instanceEventCycleStatus)
     {
-        $this->data['InstanceEventCycleStatus'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceEventCycleStatus'] = $instanceEventCycleStatus;
+        foreach ($instanceEventCycleStatus as $i => $iValue) {
             $this->options['query']['InstanceEventCycleStatus.' . ($i + 1)] = $iValue;
         }
 
@@ -2012,14 +2298,14 @@ class DescribeInstanceHistoryEvents extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $instanceEventType
      *
      * @return $this
      */
-    public function withInstanceEventType(array $value)
+    public function withInstanceEventType(array $instanceEventType)
     {
-        $this->data['InstanceEventType'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceEventType'] = $instanceEventType;
+        foreach ($instanceEventType as $i => $iValue) {
             $this->options['query']['InstanceEventType.' . ($i + 1)] = $iValue;
         }
 
@@ -2135,14 +2421,14 @@ class DescribeInstancesFullStatus extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $eventId
      *
      * @return $this
      */
-    public function withEventId(array $value)
+    public function withEventId(array $eventId)
     {
-        $this->data['EventId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['EventId'] = $eventId;
+        foreach ($eventId as $i => $iValue) {
             $this->options['query']['EventId.' . ($i + 1)] = $iValue;
         }
 
@@ -2163,14 +2449,14 @@ class DescribeInstancesFullStatus extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $instanceEventType
      *
      * @return $this
      */
-    public function withInstanceEventType(array $value)
+    public function withInstanceEventType(array $instanceEventType)
     {
-        $this->data['InstanceEventType'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceEventType'] = $instanceEventType;
+        foreach ($instanceEventType as $i => $iValue) {
             $this->options['query']['InstanceEventType.' . ($i + 1)] = $iValue;
         }
 
@@ -2204,14 +2490,14 @@ class DescribeInstancesFullStatus extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -2251,14 +2537,14 @@ class AssignPrivateIpAddresses extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $privateIpAddress
      *
      * @return $this
      */
-    public function withPrivateIpAddress(array $value)
+    public function withPrivateIpAddress(array $privateIpAddress)
     {
-        $this->data['PrivateIpAddress'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['PrivateIpAddress'] = $privateIpAddress;
+        foreach ($privateIpAddress as $i => $iValue) {
             $this->options['query']['PrivateIpAddress.' . ($i + 1)] = $iValue;
         }
 
@@ -2283,14 +2569,14 @@ class UnassignPrivateIpAddresses extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $privateIpAddress
      *
      * @return $this
      */
-    public function withPrivateIpAddress(array $value)
+    public function withPrivateIpAddress(array $privateIpAddress)
     {
-        $this->data['PrivateIpAddress'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['PrivateIpAddress'] = $privateIpAddress;
+        foreach ($privateIpAddress as $i => $iValue) {
             $this->options['query']['PrivateIpAddress.' . ($i + 1)] = $iValue;
         }
 
@@ -2426,30 +2712,30 @@ class RunInstances extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $ipv6Address
      *
      * @return $this
      */
-    public function withIpv6Address(array $value)
+    public function withIpv6Address(array $ipv6Address)
     {
-        $this->data['Ipv6Address'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Ipv6Address'] = $ipv6Address;
+        foreach ($ipv6Address as $i => $iValue) {
             $this->options['query']['Ipv6Address.' . ($i + 1)] = $iValue;
         }
 
@@ -2470,19 +2756,19 @@ class RunInstances extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $networkInterface
      *
      * @return $this
      */
-    public function withNetworkInterface(array $value)
+    public function withNetworkInterface(array $networkInterface)
     {
-        $this->data['NetworkInterface'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.PrimaryIpAddress'] = $value[$i]['PrimaryIpAddress'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.VSwitchId'] = $value[$i]['VSwitchId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.SecurityGroupId'] = $value[$i]['SecurityGroupId'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.NetworkInterfaceName'] = $value[$i]['NetworkInterfaceName'];
-            $this->options['query']['NetworkInterface.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
+        $this->data['NetworkInterface'] = $networkInterface;
+        foreach ($networkInterface as $depth1 => $depth1Value) {
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.PrimaryIpAddress'] = $depth1Value['PrimaryIpAddress'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupId'] = $depth1Value['SecurityGroupId'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.NetworkInterfaceName'] = $depth1Value['NetworkInterfaceName'];
+            $this->options['query']['NetworkInterface.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
         }
 
         return $this;
@@ -2502,23 +2788,23 @@ class RunInstances extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dataDisk
      *
      * @return $this
      */
-    public function withDataDisk(array $value)
+    public function withDataDisk(array $dataDisk)
     {
-        $this->data['DataDisk'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Size'] = $value[$i]['Size'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.SnapshotId'] = $value[$i]['SnapshotId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Category'] = $value[$i]['Category'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Encrypted'] = $value[$i]['Encrypted'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.KMSKeyId'] = $value[$i]['KMSKeyId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DiskName'] = $value[$i]['DiskName'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DeleteWithInstance'] = $value[$i]['DeleteWithInstance'];
+        $this->data['DataDisk'] = $dataDisk;
+        foreach ($dataDisk as $depth1 => $depth1Value) {
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
         }
 
         return $this;
@@ -2649,14 +2935,14 @@ class DescribeDisksFullStatus extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $eventId
      *
      * @return $this
      */
-    public function withEventId(array $value)
+    public function withEventId(array $eventId)
     {
-        $this->data['EventId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['EventId'] = $eventId;
+        foreach ($eventId as $i => $iValue) {
             $this->options['query']['EventId.' . ($i + 1)] = $iValue;
         }
 
@@ -2677,14 +2963,14 @@ class DescribeDisksFullStatus extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $diskId
      *
      * @return $this
      */
-    public function withDiskId(array $value)
+    public function withDiskId(array $diskId)
     {
-        $this->data['DiskId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['DiskId'] = $diskId;
+        foreach ($diskId as $i => $iValue) {
             $this->options['query']['DiskId.' . ($i + 1)] = $iValue;
         }
 
@@ -2914,14 +3200,14 @@ class InvokeCommand extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -2972,14 +3258,14 @@ class StopInvocation extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function withInstanceId(array $value)
+    public function withInstanceId(array $instanceId)
     {
-        $this->data['InstanceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
             $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
         }
 
@@ -3398,14 +3684,14 @@ class ModifyNetworkInterfaceAttribute extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $securityGroupId
      *
      * @return $this
      */
-    public function withSecurityGroupId(array $value)
+    public function withSecurityGroupId(array $securityGroupId)
     {
-        $this->data['SecurityGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SecurityGroupId'] = $securityGroupId;
+        foreach ($securityGroupId as $i => $iValue) {
             $this->options['query']['SecurityGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -3464,16 +3750,16 @@ class CreateNetworkInterface extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
@@ -3534,30 +3820,30 @@ class DescribeNetworkInterfaces extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $networkInterfaceId
      *
      * @return $this
      */
-    public function withNetworkInterfaceId(array $value)
+    public function withNetworkInterfaceId(array $networkInterfaceId)
     {
-        $this->data['NetworkInterfaceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['NetworkInterfaceId'] = $networkInterfaceId;
+        foreach ($networkInterfaceId as $i => $iValue) {
             $this->options['query']['NetworkInterfaceId.' . ($i + 1)] = $iValue;
         }
 
@@ -3580,14 +3866,14 @@ class DescribeSecurityGroupReferences extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $securityGroupId
      *
      * @return $this
      */
-    public function withSecurityGroupId(array $value)
+    public function withSecurityGroupId(array $securityGroupId)
     {
-        $this->data['SecurityGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SecurityGroupId'] = $securityGroupId;
+        foreach ($securityGroupId as $i => $iValue) {
             $this->options['query']['SecurityGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -3696,14 +3982,14 @@ class DescribeGroupReferences extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $groupNo
      *
      * @return $this
      */
-    public function withGroupNo(array $value)
+    public function withGroupNo(array $groupNo)
     {
-        $this->data['GroupNo'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['GroupNo'] = $groupNo;
+        foreach ($groupNo as $i => $iValue) {
             $this->options['query']['GroupNo.' . ($i + 1)] = $iValue;
         }
 
@@ -4310,16 +4596,16 @@ class DescribeKeyPairs extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -4391,16 +4677,16 @@ class CreateKeyPair extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -4638,14 +4924,14 @@ class RemoveBandwidthPackageIps extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $removedIpAddresses
      *
      * @return $this
      */
-    public function withRemovedIpAddresses(array $value)
+    public function withRemovedIpAddresses(array $removedIpAddresses)
     {
-        $this->data['RemovedIpAddresses'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RemovedIpAddresses'] = $removedIpAddresses;
+        foreach ($removedIpAddresses as $i => $iValue) {
             $this->options['query']['RemovedIpAddresses.' . ($i + 1)] = $iValue;
         }
 
@@ -4760,17 +5046,17 @@ class CreateNatGateway extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $bandwidthPackage
      *
      * @return $this
      */
-    public function withBandwidthPackage(array $value)
+    public function withBandwidthPackage(array $bandwidthPackage)
     {
-        $this->data['BandwidthPackage'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['BandwidthPackage.' . ($i + 1) . '.Bandwidth'] = $value[$i]['Bandwidth'];
-            $this->options['query']['BandwidthPackage.' . ($i + 1) . '.Zone'] = $value[$i]['Zone'];
-            $this->options['query']['BandwidthPackage.' . ($i + 1) . '.IpCount'] = $value[$i]['IpCount'];
+        $this->data['BandwidthPackage'] = $bandwidthPackage;
+        foreach ($bandwidthPackage as $depth1 => $depth1Value) {
+            $this->options['query']['BandwidthPackage.' . ($depth1 + 1) . '.Bandwidth'] = $depth1Value['Bandwidth'];
+            $this->options['query']['BandwidthPackage.' . ($depth1 + 1) . '.Zone'] = $depth1Value['Zone'];
+            $this->options['query']['BandwidthPackage.' . ($depth1 + 1) . '.IpCount'] = $depth1Value['IpCount'];
         }
 
         return $this;
@@ -5272,16 +5558,16 @@ class DescribeImageSupportInstanceTypes extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Filter.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -5399,18 +5685,18 @@ class DescribeVirtualBorderRouters extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -5436,18 +5722,18 @@ class DescribeVirtualBorderRoutersForPhysicalConnection extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -5541,18 +5827,18 @@ class DescribeAccessPoints extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -5582,18 +5868,18 @@ class DescribePhysicalConnections extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -5847,20 +6133,20 @@ class ImportImage extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $diskDeviceMapping
      *
      * @return $this
      */
-    public function withDiskDeviceMapping(array $value)
+    public function withDiskDeviceMapping(array $diskDeviceMapping)
     {
-        $this->data['DiskDeviceMapping'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.OSSBucket'] = $value[$i]['OSSBucket'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.DiskImSize'] = $value[$i]['DiskImSize'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.Format'] = $value[$i]['Format'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.OSSObject'] = $value[$i]['OSSObject'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.DiskImageSize'] = $value[$i]['DiskImageSize'];
+        $this->data['DiskDeviceMapping'] = $diskDeviceMapping;
+        foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSBucket'] = $depth1Value['OSSBucket'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImSize'] = $depth1Value['DiskImSize'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.Format'] = $depth1Value['Format'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSObject'] = $depth1Value['OSSObject'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImageSize'] = $depth1Value['DiskImageSize'];
         }
 
         return $this;
@@ -6084,18 +6370,18 @@ class DescribeRouterInterfaces extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6121,18 +6407,18 @@ class DescribeHaVips extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            foreach ($value[$i]['Values'] as $j => $jValue) {
-                $this->options['query']['Filter.' . ($i + 1) . '.Value.' . ($j + 1)] = $jValue;
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            foreach ($depth1Value['Value'] as $i => $iValue) {
+                $this->options['query']['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
             }
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6489,34 +6775,34 @@ class CreateImage extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $diskDeviceMapping
      *
      * @return $this
      */
-    public function withDiskDeviceMapping(array $value)
+    public function withDiskDeviceMapping(array $diskDeviceMapping)
     {
-        $this->data['DiskDeviceMapping'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.SnapshotId'] = $value[$i]['SnapshotId'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.Size'] = $value[$i]['Size'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.DiskType'] = $value[$i]['DiskType'];
-            $this->options['query']['DiskDeviceMapping.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
+        $this->data['DiskDeviceMapping'] = $diskDeviceMapping;
+        foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskType'] = $depth1Value['DiskType'];
+            $this->options['query']['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6551,6 +6837,7 @@ class CreateImage extends V20140526Rpc
  * @method string getZoneId()
  * @method $this withZoneId($value)
  * @method array getTag()
+ * @method array getArn()
  * @method string getKMSKeyId()
  * @method $this withKMSKeyId($value)
  */
@@ -6558,16 +6845,33 @@ class CreateDisk extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $arn
+     *
+     * @return $this
+     */
+    public function withArn(array $arn)
+    {
+        $this->data['Arn'] = $arn;
+        foreach ($arn as $depth1 => $depth1Value) {
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.Rolearn'] = $depth1Value['Rolearn'];
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.RoleType'] = $depth1Value['RoleType'];
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.AssumeRoleFor'] = $depth1Value['AssumeRoleFor'];
         }
 
         return $this;
@@ -6601,16 +6905,16 @@ class CopyImage extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6642,16 +6946,16 @@ class CreateSecurityGroup extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6683,16 +6987,16 @@ class CreateRouteEntry extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $nextHopList
      *
      * @return $this
      */
-    public function withNextHopList(array $value)
+    public function withNextHopList(array $nextHopList)
     {
-        $this->data['NextHopList'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['NextHopList.' . ($i + 1) . '.NextHopId'] = $value[$i]['NextHopId'];
-            $this->options['query']['NextHopList.' . ($i + 1) . '.NextHopType'] = $value[$i]['NextHopType'];
+        $this->data['NextHopList'] = $nextHopList;
+        foreach ($nextHopList as $depth1 => $depth1Value) {
+            $this->options['query']['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
+            $this->options['query']['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
         }
 
         return $this;
@@ -6806,16 +7110,16 @@ class CreateInstance extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -6835,17 +7139,17 @@ class CreateInstance extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $arn
      *
      * @return $this
      */
-    public function withArn(array $value)
+    public function withArn(array $arn)
     {
-        $this->data['Arn'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Arn.' . ($i + 1) . '.Rolearn'] = $value[$i]['Rolearn'];
-            $this->options['query']['Arn.' . ($i + 1) . '.RoleType'] = $value[$i]['RoleType'];
-            $this->options['query']['Arn.' . ($i + 1) . '.AssumeRoleFor'] = $value[$i]['AssumeRoleFor'];
+        $this->data['Arn'] = $arn;
+        foreach ($arn as $depth1 => $depth1Value) {
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.Rolearn'] = $depth1Value['Rolearn'];
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.RoleType'] = $depth1Value['RoleType'];
+            $this->options['query']['Arn.' . ($depth1 + 1) . '.AssumeRoleFor'] = $depth1Value['AssumeRoleFor'];
         }
 
         return $this;
@@ -6865,23 +7169,23 @@ class CreateInstance extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dataDisk
      *
      * @return $this
      */
-    public function withDataDisk(array $value)
+    public function withDataDisk(array $dataDisk)
     {
-        $this->data['DataDisk'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DiskName'] = $value[$i]['DiskName'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.SnapshotId'] = $value[$i]['SnapshotId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Size'] = $value[$i]['Size'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Encrypted'] = $value[$i]['Encrypted'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Description'] = $value[$i]['Description'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Category'] = $value[$i]['Category'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.KMSKeyId'] = $value[$i]['KMSKeyId'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.Device'] = $value[$i]['Device'];
-            $this->options['query']['DataDisk.' . ($i + 1) . '.DeleteWithInstance'] = $value[$i]['DeleteWithInstance'];
+        $this->data['DataDisk'] = $dataDisk;
+        foreach ($dataDisk as $depth1 => $depth1Value) {
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+            $this->options['query']['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
         }
 
         return $this;
@@ -6993,16 +7297,16 @@ class CreateSnapshot extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -7030,16 +7334,16 @@ class DeleteRouteEntry extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $nextHopList
      *
      * @return $this
      */
-    public function withNextHopList(array $value)
+    public function withNextHopList(array $nextHopList)
     {
-        $this->data['NextHopList'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['NextHopList.' . ($i + 1) . '.NextHopId'] = $value[$i]['NextHopId'];
-            $this->options['query']['NextHopList.' . ($i + 1) . '.NextHopType'] = $value[$i]['NextHopType'];
+        $this->data['NextHopList'] = $nextHopList;
+        foreach ($nextHopList as $depth1 => $depth1Value) {
+            $this->options['query']['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
+            $this->options['query']['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
         }
 
         return $this;
@@ -7406,16 +7710,16 @@ class DescribeDisks extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -7448,14 +7752,14 @@ class DescribeDisks extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $additionalAttributes
      *
      * @return $this
      */
-    public function withAdditionalAttributes(array $value)
+    public function withAdditionalAttributes(array $additionalAttributes)
     {
-        $this->data['AdditionalAttributes'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['AdditionalAttributes'] = $additionalAttributes;
+        foreach ($additionalAttributes as $i => $iValue) {
             $this->options['query']['AdditionalAttributes.' . ($i + 1)] = $iValue;
         }
 
@@ -7549,32 +7853,32 @@ class DescribeImages extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $filter
      *
      * @return $this
      */
-    public function withFilter(array $value)
+    public function withFilter(array $filter)
     {
-        $this->data['Filter'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Filter.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Filter.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Filter'] = $filter;
+        foreach ($filter as $depth1 => $depth1Value) {
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -7712,16 +8016,16 @@ class DescribeInstances extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -8053,16 +8357,16 @@ class DescribeSnapshots extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -8132,16 +8436,16 @@ class DescribeSecurityGroups extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -8578,14 +8882,14 @@ class ModifyImageSharePermission extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $addAccount
      *
      * @return $this
      */
-    public function withAddAccount(array $value)
+    public function withAddAccount(array $addAccount)
     {
-        $this->data['AddAccount'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['AddAccount'] = $addAccount;
+        foreach ($addAccount as $i => $iValue) {
             $this->options['query']['AddAccount.' . ($i + 1)] = $iValue;
         }
 
@@ -8593,14 +8897,14 @@ class ModifyImageSharePermission extends V20140526Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $removeAccount
      *
      * @return $this
      */
-    public function withRemoveAccount(array $value)
+    public function withRemoveAccount(array $removeAccount)
     {
-        $this->data['RemoveAccount'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RemoveAccount'] = $removeAccount;
+        foreach ($removeAccount as $i => $iValue) {
             $this->options['query']['RemoveAccount.' . ($i + 1)] = $iValue;
         }
 
@@ -9099,16 +9403,16 @@ class DescribeTags extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -9134,16 +9438,16 @@ class DescribeResourceByTags extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -9167,16 +9471,16 @@ class AddTags extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -9200,16 +9504,16 @@ class RemoveTags extends V20140526Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
