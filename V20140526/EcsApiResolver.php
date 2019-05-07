@@ -8,6 +8,8 @@ use AlibabaCloud\Rpc;
 /**
  * Resolve Api based on the method name.
  *
+ * @method ReportInstancesStatus reportInstancesStatus(array $options = [])
+ * @method ModifyReservedInstanceAttribute modifyReservedInstanceAttribute(array $options = [])
  * @method PurchaseReservedInstancesOffering purchaseReservedInstancesOffering(array $options = [])
  * @method ModifyReservedInstances modifyReservedInstances(array $options = [])
  * @method DescribeReservedInstances describeReservedInstances(array $options = [])
@@ -316,6 +318,80 @@ class V20140526Rpc extends Rpc
 }
 
 /**
+ * @method string getReason()
+ * @method $this withReason($value)
+ * @method string getResourceOwnerId()
+ * @method $this withResourceOwnerId($value)
+ * @method string getDescription()
+ * @method $this withDescription($value)
+ * @method string getStartTime()
+ * @method $this withStartTime($value)
+ * @method array getDiskId()
+ * @method string getResourceOwnerAccount()
+ * @method $this withResourceOwnerAccount($value)
+ * @method string getOwnerAccount()
+ * @method $this withOwnerAccount($value)
+ * @method string getEndTime()
+ * @method $this withEndTime($value)
+ * @method string getOwnerId()
+ * @method $this withOwnerId($value)
+ * @method array getInstanceId()
+ */
+class ReportInstancesStatus extends V20140526Rpc
+{
+
+    /**
+     * @param array $diskId
+     *
+     * @return $this
+     */
+    public function withDiskId(array $diskId)
+    {
+        $this->data['DiskId'] = $diskId;
+        foreach ($diskId as $i => $iValue) {
+            $this->options['query']['DiskId.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $instanceId
+     *
+     * @return $this
+     */
+    public function withInstanceId(array $instanceId)
+    {
+        $this->data['InstanceId'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
+            $this->options['query']['InstanceId.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+}
+
+/**
+ * @method string getResourceOwnerId()
+ * @method $this withResourceOwnerId($value)
+ * @method string getDescription()
+ * @method $this withDescription($value)
+ * @method string getResourceOwnerAccount()
+ * @method $this withResourceOwnerAccount($value)
+ * @method string getOwnerAccount()
+ * @method $this withOwnerAccount($value)
+ * @method string getOwnerId()
+ * @method $this withOwnerId($value)
+ * @method string getReservedInstanceId()
+ * @method $this withReservedInstanceId($value)
+ * @method string getReservedInstanceName()
+ * @method $this withReservedInstanceName($value)
+ */
+class ModifyReservedInstanceAttribute extends V20140526Rpc
+{
+}
+
+/**
  * @method string getResourceOwnerId()
  * @method $this withResourceOwnerId($value)
  * @method string getClientToken()
@@ -328,8 +404,15 @@ class V20140526Rpc extends Rpc
  * @method $this withScope($value)
  * @method string getInstanceType()
  * @method $this withInstanceType($value)
+ * @method array getTag()
+ * @method string getBusinessInfo()
+ * @method $this withBusinessInfo($value)
  * @method string getPeriod()
  * @method $this withPeriod($value)
+ * @method string getDryRun()
+ * @method $this withDryRun($value)
+ * @method string getFromApp()
+ * @method $this withFromApp($value)
  * @method string getResourceOwnerAccount()
  * @method $this withResourceOwnerAccount($value)
  * @method string getOwnerAccount()
@@ -344,17 +427,38 @@ class V20140526Rpc extends Rpc
  * @method $this withZoneId($value)
  * @method string getReservedInstanceName()
  * @method $this withReservedInstanceName($value)
+ * @method string getChargeType()
+ * @method $this withChargeType($value)
  * @method string getInstanceAmount()
  * @method $this withInstanceAmount($value)
  */
 class PurchaseReservedInstancesOffering extends V20140526Rpc
 {
+
+    /**
+     * @param array $tag
+     *
+     * @return $this
+     */
+    public function withTag(array $tag)
+    {
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+        }
+
+        return $this;
+    }
 }
 
 /**
  * @method string getResourceOwnerId()
  * @method $this withResourceOwnerId($value)
  * @method array getConfiguration()
+ * @method array getTag()
+ * @method string getDryRun()
+ * @method $this withDryRun($value)
  * @method string getResourceOwnerAccount()
  * @method $this withResourceOwnerAccount($value)
  * @method string getOwnerAccount()
@@ -380,6 +484,22 @@ class ModifyReservedInstances extends V20140526Rpc
             $this->options['query']['Configuration.' . ($depth1 + 1) . '.InstanceType'] = $depth1Value['InstanceType'];
             $this->options['query']['Configuration.' . ($depth1 + 1) . '.Scope'] = $depth1Value['Scope'];
             $this->options['query']['Configuration.' . ($depth1 + 1) . '.InstanceAmount'] = $depth1Value['InstanceAmount'];
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $tag
+     *
+     * @return $this
+     */
+    public function withTag(array $tag)
+    {
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
         }
 
         return $this;
@@ -490,7 +610,6 @@ class ModifyDiskSpec extends V20140526Rpc
  * @method $this withResourceOwnerId($value)
  * @method string getFleetType()
  * @method $this withFleetType($value)
- * @method array getLaunchTemplateConfigs()
  * @method string getDescription()
  * @method $this withDescription($value)
  * @method string getTerminateInstancesWithExpiration()
@@ -510,6 +629,7 @@ class ModifyDiskSpec extends V20140526Rpc
  * @method string getExcessCapacityTerminationPolicy()
  * @method $this withExcessCapacityTerminationPolicy($value)
  * @method array getTag()
+ * @method array getLaunchTemplateConfig()
  * @method string getValidUntil()
  * @method $this withValidUntil($value)
  * @method string getFillGapWithOnDemand()
@@ -543,25 +663,6 @@ class CreateFleet extends V20140526Rpc
 {
 
     /**
-     * @param array $launchTemplateConfigs
-     *
-     * @return $this
-     */
-    public function withLaunchTemplateConfigs(array $launchTemplateConfigs)
-    {
-        $this->data['LaunchTemplateConfigs'] = $launchTemplateConfigs;
-        foreach ($launchTemplateConfigs as $depth1 => $depth1Value) {
-            $this->options['query']['LaunchTemplateConfigs.' . ($depth1 + 1) . '.InstanceType'] = $depth1Value['InstanceType'];
-            $this->options['query']['LaunchTemplateConfigs.' . ($depth1 + 1) . '.MaxPrice'] = $depth1Value['MaxPrice'];
-            $this->options['query']['LaunchTemplateConfigs.' . ($depth1 + 1) . '.VSWitchId'] = $depth1Value['VSWitchId'];
-            $this->options['query']['LaunchTemplateConfigs.' . ($depth1 + 1) . '.WeightedCapacity'] = $depth1Value['WeightedCapacity'];
-            $this->options['query']['LaunchTemplateConfigs.' . ($depth1 + 1) . '.Priority'] = $depth1Value['Priority'];
-        }
-
-        return $this;
-    }
-
-    /**
      * @param array $tag
      *
      * @return $this
@@ -572,6 +673,25 @@ class CreateFleet extends V20140526Rpc
         foreach ($tag as $depth1 => $depth1Value) {
             $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
             $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $launchTemplateConfig
+     *
+     * @return $this
+     */
+    public function withLaunchTemplateConfig(array $launchTemplateConfig)
+    {
+        $this->data['LaunchTemplateConfig'] = $launchTemplateConfig;
+        foreach ($launchTemplateConfig as $depth1 => $depth1Value) {
+            $this->options['query']['LaunchTemplateConfig.' . ($depth1 + 1) . '.InstanceType'] = $depth1Value['InstanceType'];
+            $this->options['query']['LaunchTemplateConfig.' . ($depth1 + 1) . '.MaxPrice'] = $depth1Value['MaxPrice'];
+            $this->options['query']['LaunchTemplateConfig.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
+            $this->options['query']['LaunchTemplateConfig.' . ($depth1 + 1) . '.WeightedCapacity'] = $depth1Value['WeightedCapacity'];
+            $this->options['query']['LaunchTemplateConfig.' . ($depth1 + 1) . '.Priority'] = $depth1Value['Priority'];
         }
 
         return $this;
@@ -1153,6 +1273,8 @@ class AssignIpv6Addresses extends V20140526Rpc
  * @method $this withClientToken($value)
  * @method string getPeriod()
  * @method $this withPeriod($value)
+ * @method string getDryRun()
+ * @method $this withDryRun($value)
  * @method string getResourceOwnerAccount()
  * @method $this withResourceOwnerAccount($value)
  * @method string getOwnerAccount()
@@ -1408,8 +1530,6 @@ class DescribeDedicatedHostTypes extends V20140526Rpc
  * @method string getNetworkAttributesSlbUdpTimeout()
  * @method string getZoneId()
  * @method $this withZoneId($value)
- * @method string getAutoPlacement()
- * @method $this withAutoPlacement($value)
  * @method string getChargeType()
  * @method $this withChargeType($value)
  * @method string getNetworkAttributesUdpTimeout()
@@ -3207,6 +3327,7 @@ class ReActivateInstances extends V20140526Rpc
  * @method $this withDedicatedHostId($value)
  * @method string getCreditSpecification()
  * @method $this withCreditSpecification($value)
+ * @method array getSecurityGroupIds()
  * @method array getDataDisk()
  * @method string getLaunchTemplateVersion()
  * @method $this withLaunchTemplateVersion($value)
@@ -3301,6 +3422,21 @@ class RunInstances extends V20140526Rpc
     {
         $this->data['SystemDiskDiskName'] = $value;
         $this->options['query']['SystemDisk.DiskName'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param array $securityGroupIds
+     *
+     * @return $this
+     */
+    public function withSecurityGroupIds(array $securityGroupIds)
+    {
+        $this->data['SecurityGroupIds'] = $securityGroupIds;
+        foreach ($securityGroupIds as $i => $iValue) {
+            $this->options['query']['SecurityGroupIds.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -3714,6 +3850,8 @@ class DescribeInvocations extends V20140526Rpc
  * @method string getOwnerId()
  * @method $this withOwnerId($value)
  * @method array getInstanceId()
+ * @method string getParameters()
+ * @method $this withParameters($value)
  */
 class InvokeCommand extends V20140526Rpc
 {
@@ -3813,6 +3951,8 @@ class StopInvocation extends V20140526Rpc
  * @method $this withOwnerId($value)
  * @method string getName()
  * @method $this withName($value)
+ * @method string getEnableParameter()
+ * @method $this withEnableParameter($value)
  */
 class CreateCommand extends V20140526Rpc
 {
@@ -7443,6 +7583,8 @@ class CopyImage extends V20140526Rpc
  * @method $this withOwnerId($value)
  * @method string getSecurityGroupName()
  * @method $this withSecurityGroupName($value)
+ * @method string getSecurityGroupType()
+ * @method $this withSecurityGroupType($value)
  * @method string getResourceGroupId()
  * @method $this withResourceGroupId($value)
  * @method string getVpcId()
@@ -7963,6 +8105,8 @@ class DeleteVpc extends V20140526Rpc
  * @method $this withSnapshotId($value)
  * @method string getResourceOwnerAccount()
  * @method $this withResourceOwnerAccount($value)
+ * @method string getClientToken()
+ * @method $this withClientToken($value)
  * @method string getOwnerAccount()
  * @method $this withOwnerAccount($value)
  * @method string getForce()
@@ -9825,6 +9969,8 @@ class ResizeDisk extends V20140526Rpc
  * @method $this withSnapshotId($value)
  * @method string getResourceOwnerAccount()
  * @method $this withResourceOwnerAccount($value)
+ * @method string getClientToken()
+ * @method $this withClientToken($value)
  * @method string getOwnerAccount()
  * @method $this withOwnerAccount($value)
  * @method string getDiskId()
