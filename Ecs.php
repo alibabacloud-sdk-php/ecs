@@ -5,8 +5,8 @@ namespace AlibabaCloud\Ecs;
 use AlibabaCloud\Client\Resolver\VersionResolver;
 
 /**
- * @deprecated
+ * @method static V20140526\EcsApiResolver v20140526()
  */
-class EcsVersion extends VersionResolver
+class Ecs extends VersionResolver
 {
 }
